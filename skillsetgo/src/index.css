@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Paper — cool stone, not cream */
+  --color-cream: #EBEDE6;
+  --color-white: #F6F7F3;
+
+  /* Ink — cool near-black */
+  --color-ink: #161A1D;
+  --color-muted: #465049;
+
+  /* Structural dark panel — used for sidebar/header/hero, not decoration */
+  --color-sage-dark: #1B2A2A;
+  --color-sage: #3C6B5E;
+  --color-sage-soft: #DCE6DD;
+
+  /* Signal accent — brass/amber, distinct from terracotta */
+  --color-terracotta: #D9A03A;
+  --color-brass-dark: #7A4F0E;
+  --color-peach: #F1E4C9;
+
+  --color-beige: #E3E6DC;
+  --color-gold: #2F6B4F;
+
+  --color-border: #C7CBBF;
+
+  /* Alert / gap state */
+  --color-rust: #A8452C;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.015em;
+}
+
+::selection {
+  background: var(--color-terracotta);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 2px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Technical corner-bracket accent — used once, sparingly, as the one bold device */
+.bracket-panel {
+  position: relative;
+}
+.bracket-panel::before,
+.bracket-panel::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--color-terracotta);
+  border-style: solid;
+  border-width: 0;
+}
+.bracket-panel::before {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+.bracket-panel::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
